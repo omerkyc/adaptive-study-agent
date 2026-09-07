@@ -8,14 +8,14 @@ targets those weak spots.
 
 ## How it works
 
-1. `study_agent/mastery.py` — a pure rule-based pass (no LLM) that groups
+1. `study_agent/mastery.py`: a pure rule-based pass (no LLM) that groups
    past quiz attempts by concept and computes accuracy per concept.
    Concepts below a threshold (default 70%) are flagged as "weak."
-2. `study_agent/quiz_generator.py` — sends the study material and the list
+2. `study_agent/quiz_generator.py`: sends the study material and the list
    of weak concepts to Claude (`claude-haiku-4-5-20251001`), asking it to
    generate multiple-choice questions targeting those concepts, with an
    answer key and an explanation for each.
-3. `run_baseline.py` — CLI that wires the two together, prints the quiz,
+3. `run_baseline.py`: the CLI that wires the two together, prints the quiz,
    and saves it as JSON.
 
 ## Setup
@@ -57,8 +57,8 @@ python run_baseline.py \
 
 ### Optional flags
 
-- `--threshold` — accuracy cutoff below which a concept counts as "weak" (default `0.7`)
-- `--output` — where to save the generated quiz JSON (default `outputs/quiz_output.json`)
+- `--threshold`: accuracy cutoff below which a concept counts as "weak" (default `0.7`)
+- `--output`: where to save the generated quiz JSON (default `outputs/quiz_output.json`)
 
 ## Test case
 
@@ -73,14 +73,11 @@ With the provided example files, the performance log gives:
 Running the baseline correctly detects `deletion` and `tree_balance` as the
 weak concepts and generates questions only about those two topics, each
 with a correct answer and an explanation grounded in `study_material.txt`.
-See `proposal/` for a sample run's full output and screenshot.
 
 ## Known limitations
 
 - Single LLM call, no retry/repair loop if the model's JSON output is malformed.
-- Mastery model is a simple accuracy threshold, not a real spaced-repetition
-  or Bayesian knowledge-tracing model.
-- No persistence of quiz results back into the performance log (the loop
-  is not yet closed — a future version would update the log after each
+- No persistence of quiz results back into the performance log, so the loop
+  is not yet closed (a future version would update the log after each
   quiz attempt).
 - Only supports multiple-choice questions currently.
