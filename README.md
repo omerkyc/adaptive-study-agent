@@ -21,7 +21,7 @@ targets those weak spots.
 ## Setup
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/omerkyc/adaptive-study-agent.git
 cd adaptive-study-agent
 python3 -m venv .venv
 source .venv/bin/activate      # Windows: .venv\Scripts\activate
