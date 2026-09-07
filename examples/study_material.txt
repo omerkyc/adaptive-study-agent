@@ -1,0 +1,36 @@
+Binary Search Trees (BSTs) - Study Notes
+
+1. Definition
+A binary search tree is a binary tree where each node has at most two children,
+and for every node N: all values in N's left subtree are less than N's value,
+and all values in N's right subtree are greater than N's value.
+
+2. Insertion
+To insert a value, start at the root and compare it to the current node.
+Go left if smaller, right if larger, until you reach an empty spot, then
+insert the new node there. Insertion is O(h), where h is the height of the tree.
+
+3. Search
+Searching works the same way as insertion's traversal: compare the target
+value to the current node and move left or right until found or you reach
+a null pointer. Search is O(h) in the worst case (O(log n) if balanced,
+O(n) if the tree degenerates into a linked list).
+
+4. Deletion
+Deletion has three cases:
+  - Deleting a leaf node: simply remove it.
+  - Deleting a node with one child: replace the node with its child.
+  - Deleting a node with two children: find the in-order successor
+    (the smallest value in the right subtree, i.e. leftmost node of the
+    right subtree), copy its value into the node being deleted, then
+    delete the successor node (which has at most one child).
+
+5. Tree Balance
+An unbalanced BST can degrade to O(n) operations. Self-balancing trees
+(AVL trees, Red-Black trees) rebalance automatically after insertions and
+deletions to guarantee O(log n) height.
+
+6. In-order Traversal
+Visiting a BST's nodes in-order (left subtree, node, right subtree)
+produces the values in sorted ascending order. This is a key property
+used to verify a tree is a valid BST.

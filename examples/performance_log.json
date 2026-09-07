@@ -1,0 +1,24 @@
+[
+  {"concept": "insertion", "correct": true},
+  {"concept": "insertion", "correct": true},
+  {"concept": "insertion", "correct": true},
+  {"concept": "insertion", "correct": false},
+
+  {"concept": "search", "correct": true},
+  {"concept": "search", "correct": true},
+  {"concept": "search", "correct": true},
+
+  {"concept": "deletion", "correct": false},
+  {"concept": "deletion", "correct": false},
+  {"concept": "deletion", "correct": true},
+  {"concept": "deletion", "correct": false},
+
+  {"concept": "tree_balance", "correct": false},
+  {"concept": "tree_balance", "correct": true},
+  {"concept": "tree_balance", "correct": false},
+
+  {"concept": "in_order_traversal", "correct": true},
+  {"concept": "in_order_traversal", "correct": true},
+  {"concept": "in_order_traversal", "correct": true},
+  {"concept": "in_order_traversal", "correct": true}
+]
